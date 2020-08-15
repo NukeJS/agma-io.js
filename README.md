@@ -26,6 +26,16 @@ Agma.getServers('eu').then(data => {
   // ...
 })
 
+// Get all top 20 mass stats
+Agma.getMass().then(data => {
+  // ...
+})
+
+// Get top 20 mass stats by serverId
+Agma.getMass(10).then(data => {
+  // ...
+})
+
 // Get top 800 levels
 Agma.getLevels().then(data => {
   // ...
