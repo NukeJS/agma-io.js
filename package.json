@@ -1,0 +1,14 @@
+{
+  "name": "agma-io.js",
+  "version": "0.0.1",
+  "description": "Fetch data from agma.io",
+  "main": "agma-io.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nuke",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
