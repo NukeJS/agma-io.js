@@ -10,5 +10,10 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CodingWithNuke/agma-io.js.git"
+  },
+  "homepage": "https://github.com/CodingWithNuke/agma-io.js#readme"
 }
