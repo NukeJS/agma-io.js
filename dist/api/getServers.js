@@ -19,10 +19,10 @@ const getServers = (region) => __awaiter(void 0, void 0, void 0, function* () {
         }
     });
     if (region) {
-        return data.filter((server) => constants_2.regions[parseInt(server.serverLocation)] == region ? server : null).map((server) => new models_1.Server(Object.assign(Object.assign({}, server), { region: constants_2.regions[parseInt(server.serverLocation)] })));
+        return data.filter((server) => constants_2.regions[parseInt(server.serverLocation)] == region ? server : null).map((server) => new models_1.Server(server));
     }
     else {
-        return data.map((server) => new models_1.Server(Object.assign(Object.assign({}, server), { region: constants_2.regions[parseInt(server.serverLocation)] })));
+        return data.map((server) => new models_1.Server(server));
     }
 });
 exports.default = getServers;
