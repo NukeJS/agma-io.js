@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const constants_1 = require("../constants");
+const models_1 = require("../models");
 const constants_2 = require("../constants");
 const getServers = (region) => __awaiter(void 0, void 0, void 0, function* () {
     const { data } = yield constants_1.API.get('https://agma.io/php_hscores_file.php', {
@@ -18,20 +19,10 @@ const getServers = (region) => __awaiter(void 0, void 0, void 0, function* () {
         }
     });
     if (region) {
-        return data.filter((server) => constants_2.regions[parseInt(server.serverLocation)] == region ? server : null).map((server) => ({
-            id: parseInt(server.serverId),
-            name: server.serverName,
-            region: constants_2.regions[parseInt(server.serverLocation)],
-            online: Boolean(Number(server.active))
-        }));
+        return data.filter((server) => constants_2.regions[parseInt(server.serverLocation)] == region ? server : null).map((server) => new models_1.Server(Object.assign(Object.assign({}, server), { region: constants_2.regions[parseInt(server.serverLocation)] })));
     }
     else {
-        return data.map((server) => ({
-            id: parseInt(server.serverId),
-            name: server.serverName,
-            region: constants_2.regions[parseInt(server.serverLocation)],
-            online: Boolean(Number(server.active))
-        }));
+        return data.map((server) => new models_1.Server(Object.assign(Object.assign({}, server), { region: constants_2.regions[parseInt(server.serverLocation)] })));
     }
 });
 exports.default = getServers;
