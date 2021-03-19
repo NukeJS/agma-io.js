@@ -12,15 +12,9 @@ const getServers = async (region?: Region): Promise<Server[]> => {
   });
 
   if (region) {
-    return data.filter((server: any) => regions[parseInt(server.serverLocation)] == region ? server : null).map((server: any) => new Server({
-      ...server,
-      region: regions[parseInt(server.serverLocation)],
-    }))
+    return data.filter((server: any) => regions[parseInt(server.serverLocation)] == region ? server : null).map((server: any) => new Server(server))
   } else {
-    return data.map((server: any) => new Server({
-      ...server,
-      region: regions[parseInt(server.serverLocation)],
-    }))
+    return data.map((server: any) => new Server(server))
   }
 }
 
