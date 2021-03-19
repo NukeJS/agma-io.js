@@ -1,7 +1,7 @@
 {
   
   "name": "agma-io.js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple, easy to use promise-based module for interacting with some Agma.io APIs.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

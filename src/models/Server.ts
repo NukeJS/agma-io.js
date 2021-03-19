@@ -5,10 +5,10 @@ class Server {
   online: boolean;
 
   constructor(data: any) {
-    this.id = data.id;
-    this.name = data.name;
+    this.id = Number(data.serverId);
+    this.name = data.serverName;
     this.region = data.region;
-    this.online = data.online;
+    this.online = Boolean(Number(data.active));
   }
 }
 
