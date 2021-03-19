@@ -19,10 +19,10 @@ const {
 
 (async () => {
 
-  // Fetch all servers
+  // Fetch servers
   const servers = await getServers();
 
-  // Fetch a server by region
+  // Fetch servers by region
   const euServers = await getServers('EU');
 
   // Fetch mass leaderboard by server id
