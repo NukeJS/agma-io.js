@@ -1,0 +1,1 @@
+export type Region = 'EU' | 'NA' | 'AS'

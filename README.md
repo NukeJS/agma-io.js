@@ -9,61 +9,29 @@ $ npm i agma-io.js
 # Examples
 
 ```js
-// Require the NPM Module
-const AgmaioJS = require('agma-io.js');
+// Destructure the functions you'd wish to use, or make it a variable
+const { 
+  getServers,
+  getMassLeaderboard,
+  getLevelsLeaderboard,
+  getBattleRoyaleUser
+} = require('agma-io.js');
 
-// Create a new instance
-const Agma = new AgmaioJS();
+(async () => {
 
-// Get all server stats
-Agma.getServers().then(data => {
-  // ...
-})
+  // Fetch all servers
+  const servers = await getServers();
 
-// Get all server stats by region
-// Possible regions: eu, na, as
-Agma.getServers('eu').then(data => {
-  // ...
-})
+  // Fetch a server by region
+  const euServers = await getServers('EU');
 
-// Get all top 20 mass stats
-Agma.getMass().then(data => {
-  // ...
-})
+  // Fetch mass leaderboard by server id
+  const selffeedEuMassLeaderboard = await getMassLeaderboard(29);
 
-// Get top 20 mass stats by serverId
-Agma.getMass(10).then(data => {
-  // ...
-})
+  // Fetch levels leaderboard
+  const levelsLeaderboard = await getLevelsLeaderboard();
 
-// Get top 800 levels
-Agma.getLevels().then(data => {
-  // ...
-})
-
-// Pagination for top 800 levels
-Agma.getLevels({
-  pagination: true,   // Turn pagination on/off
-  page: 0,            // Initial page
-  itemsPerPage: 20    // Amount of users per page
-}).then(data => {
-  // The data object has built in functions
-
-  // Next page
-  data.nextPage();
-
-  // Previous page
-  data.prevPage();
-
-  // Set page
-  data.setPage(page);
-
-  // To access the users array
-  data.users;
-})
-
-// Get a user
-Agma.getUser('Nuke').then(data => {
-  // ...
-})
+  // Fetch a user (Uses Battle Royale API)
+  const user = await getBattleRoyaleUser('Nuke');
+})()
 ```
