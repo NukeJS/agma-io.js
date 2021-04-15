@@ -6,7 +6,7 @@ class LevelsLeaderboardUser {
   level: Number;
 
   constructor(data: any) {
-    this.username = data.username;
+    this.username = data.username.replace(" \n", "");
     this.memberType = Number(data.memberType);
     this.moderatorType = Number(data.moderatorType);
     this.donatorType = Number(data.dntn);

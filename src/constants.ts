@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const API = axios.create({
-  baseURL: 'https://agma.io'
-})
+  baseURL: "https://agma.io",
+});
 
-export const regions = ['EU', 'NA', 'AS'];
+export const availableRegions = ["EU", "NA", "AS"] as const;

@@ -11,18 +11,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const constants_1 = require("../constants");
 const models_1 = require("../models");
-const constants_2 = require("../constants");
-const getServers = (region) => __awaiter(void 0, void 0, void 0, function* () {
-    const { data } = yield constants_1.API.get('https://agma.io/php_hscores_file.php', {
+const getMassLeaderboard = (serverId) => __awaiter(void 0, void 0, void 0, function* () {
+    const { data } = yield constants_1.API.get("/php_hscores_file.php", {
         params: {
-            type: 3
-        }
+            type: 1,
+            page: serverId,
+        },
     });
-    if (region) {
-        return data.filter((server) => constants_2.regions[parseInt(server.serverLocation)] == region ? server : null).map((server) => new models_1.Server(server));
-    }
-    else {
-        return data.map((server) => new models_1.Server(server));
-    }
+    return data.map((user) => new models_1.MassLeaderboardUser(user));
 });
-exports.default = getServers;
+exports.default = getMassLeaderboard;

@@ -1,4 +1,4 @@
-import { regions } from '../constants';
+import { availableRegions } from "../constants";
 
 class Server {
   id: number;
@@ -9,7 +9,7 @@ class Server {
   constructor(data: any) {
     this.id = Number(data.serverId);
     this.name = data.serverName;
-    this.region = regions[parseInt(data.serverLocation)];
+    this.region = availableRegions[parseInt(data.serverLocation)];
     this.online = Boolean(Number(data.active));
   }
 }

@@ -5,7 +5,7 @@ class Server {
     constructor(data) {
         this.id = Number(data.serverId);
         this.name = data.serverName;
-        this.region = constants_1.regions[parseInt(data.serverLocation)];
+        this.region = constants_1.availableRegions[parseInt(data.serverLocation)];
         this.online = Boolean(Number(data.active));
     }
 }

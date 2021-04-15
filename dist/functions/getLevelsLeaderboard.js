@@ -17,9 +17,9 @@ const constants_1 = require("../constants");
 const models_1 = require("../models");
 const getLevelsLeaderboard = () => __awaiter(void 0, void 0, void 0, function* () {
     const pages = yield axios_1.default.all([
-        constants_1.API.get('/php_hscores_file.php', { params: { type: 2, page: 1 } }),
-        constants_1.API.get('/php_hscores_file.php', { params: { type: 2, page: 6 } }),
-        constants_1.API.get('/php_hscores_file.php', { params: { type: 2, page: 21 } }),
+        constants_1.API.get("/php_hscores_file.php", { params: { type: 2, page: 1 } }),
+        constants_1.API.get("/php_hscores_file.php", { params: { type: 2, page: 6 } }),
+        constants_1.API.get("/php_hscores_file.php", { params: { type: 2, page: 21 } }),
     ]);
     const data = pages.reduce((acc, { data }) => acc.concat(data), []);
     return data.map((user) => new models_1.LevelsLeaderboardUser(user));

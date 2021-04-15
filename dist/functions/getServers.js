@@ -11,15 +11,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const constants_1 = require("../constants");
 const models_1 = require("../models");
-const getBattleRoyaleUser = (username) => __awaiter(void 0, void 0, void 0, function* () {
-    const { data } = yield constants_1.API.get("/royale_stats.php", {
+const constants_2 = require("../constants");
+const getServers = (region) => __awaiter(void 0, void 0, void 0, function* () {
+    const { data } = yield constants_1.API.get("https://agma.io/php_hscores_file.php", {
         params: {
-            user: username,
+            type: 3,
         },
     });
-    if (data === 'noUser') {
-        throw new Error(`User with username ${username} does not exist or they haven't played Battle Royale yet.`);
+    if (region) {
+        return data
+            .filter((server) => constants_2.availableRegions[parseInt(server.serverLocation)] == region
+            ? server
+            : null)
+            .map((server) => new models_1.Server(server));
     }
-    return new models_1.BattleRoyaleUser(Object.assign(Object.assign({}, data), { username }));
+    else {
+        return data.map((server) => new models_1.Server(server));
+    }
 });
-exports.default = getBattleRoyaleUser;
+exports.default = getServers;

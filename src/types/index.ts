@@ -1,1 +1,3 @@
-export type Region = 'EU' | 'NA' | 'AS'
+import { availableRegions } from "../constants";
+
+export type Region = typeof availableRegions[number];

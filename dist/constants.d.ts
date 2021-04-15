@@ -1,2 +1,2 @@
 export declare const API: import("axios").AxiosInstance;
-export declare const regions: string[];
+export declare const availableRegions: readonly ["EU", "NA", "AS"];

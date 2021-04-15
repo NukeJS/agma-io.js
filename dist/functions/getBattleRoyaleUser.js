@@ -11,13 +11,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const constants_1 = require("../constants");
 const models_1 = require("../models");
-const getMassLeaderboard = (serverId) => __awaiter(void 0, void 0, void 0, function* () {
-    const { data } = yield constants_1.API.get('/php_hscores_file.php', {
+const getBattleRoyaleUser = (username) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!username || !username.length) {
+        throw new TypeError(`Expected username, but didn't get.`);
+    }
+    const { data } = yield constants_1.API.get("/royale_stats.php", {
         params: {
-            type: 1,
-            page: serverId
-        }
+            user: username,
+        },
     });
-    return data.map((user) => new models_1.MassLeaderboardUser(user));
+    if (data === "noUser") {
+        throw new Error(`User with username ${username} does not exist or they haven't played Battle Royale yet.`);
+    }
+    return new models_1.BattleRoyaleUser(Object.assign(Object.assign({}, data), { username }));
 });
-exports.default = getMassLeaderboard;
+exports.default = getBattleRoyaleUser;

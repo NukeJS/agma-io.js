@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class LevelsLeaderboardUser {
     constructor(data) {
-        this.username = data.username;
+        this.username = data.username.replace(" \n", "");
         this.memberType = Number(data.memberType);
         this.moderatorType = Number(data.moderatorType);
         this.donatorType = Number(data.dntn);
