@@ -4,7 +4,6 @@ A simple, easy to use promise-based module for interacting with some Agma.io API
 
 ## Table of Contents
 
-  - [Table of Contents](#table-of-contents)
   - [Installing](#installing)
   - [Example](#example)
 
