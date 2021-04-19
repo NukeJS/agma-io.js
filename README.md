@@ -2,7 +2,14 @@
 
 A simple, easy to use promise-based module for interacting with some Agma.io APIs.
 
-# Installing
+## Table of Contents
+
+- [agma-io.js](#agma-iojs)
+  - [Table of Contents](#table-of-contents)
+  - [Installing](#installing)
+  - [Example](#example)
+
+## Installing
 
 Using NPM:
 
@@ -16,7 +23,7 @@ Using Yarn:
 $ yarn add agma-io.js
 ```
 
-# Example
+## Example
 
 Get all servers
 
@@ -71,14 +78,15 @@ const { getBattleRoyaleUser } = require("agma-io.js");
 ```
 
 Of course you can use `.then()` and things like that.
+
 ```js
 const { getBattleRoyaleUser } = require("agma-io.js");
 
-getBattleRoyaleUser('Nuke')
+getBattleRoyaleUser("Nuke")
   .then((user) => {
     console.log(user);
   })
   .catch((err) => {
     console.log(err);
-  })
+  });
 ```
