@@ -1,37 +1,71 @@
+# agma-io.js
+
 A simple, easy to use promise-based module for interacting with some Agma.io APIs.
 
-# Setup and Installation
+# Installing
+
+Using NPM:
 
 ```
 $ npm i agma-io.js
 ```
 
-# Examples
+Using Yarn:
+
+```
+$ yarn add agma-io.js
+```
+
+# Example
+
+Get all servers
 
 ```js
-// Destructure the functions you'd wish to use, or make it a variable
-const { 
-  getServers,
-  getMassLeaderboard,
-  getLevelsLeaderboard,
-  getBattleRoyaleUser
-} = require('agma-io.js');
+const { getServers } = require("agma-io.js");
 
 (async () => {
-
-  // Fetch servers
   const servers = await getServers();
+})();
+```
 
-  // Fetch servers by region
-  const euServers = await getServers('EU');
+Get all servers by given region
 
-  // Fetch mass leaderboard by server id
+```js
+const { getServers } = require("agma-io.js");
+
+(async () => {
+  const euServers = await getServers("EU");
+})();
+```
+
+Get the mass leaderboard of a server by server id
+
+```js
+const { getMassLeaderboard } = require("agma-io.js");
+
+(async () => {
   const selffeedEuMassLeaderboard = await getMassLeaderboard(29);
+})();
+```
 
-  // Fetch levels leaderboard
+Get the global levels leaderboard
+
+```js
+const { getLevelsLeaderboard } = require("agma-io.js");
+
+(async () => {
   const levelsLeaderboard = await getLevelsLeaderboard();
+})();
+```
 
-  // Fetch a user (Uses Battle Royale API)
-  const user = await getBattleRoyaleUser('Nuke');
-})()
+Get a user by username
+
+> **NOTE**: This uses the Battle Royale API. This means that if the given user hasn't played Battle Royale yet, it will return an error.
+
+```js
+const { getBattleRoyaleUser } = require("agma-io.js");
+
+(async () => {
+  const user = await getBattleRoyaleUser("Nuke");
+})();
 ```
