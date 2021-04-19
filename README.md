@@ -69,3 +69,16 @@ const { getBattleRoyaleUser } = require("agma-io.js");
   const user = await getBattleRoyaleUser("Nuke");
 })();
 ```
+
+Of course you can use `.then()` and things like that.
+```js
+const { getBattleRoyaleUser } = require("agma-io.js");
+
+getBattleRoyaleUser('Nuke')
+  .then((user) => {
+    console.log(user);
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+```
