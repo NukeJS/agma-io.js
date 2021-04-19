@@ -1,59 +1,27 @@
 {
-  
   "name": "agma-io.js",
-  
   "version": "1.1.0",
-  
   "description": "A simple, easy to use promise-based module for interacting with some Agma.io APIs.",
-  
   "main": "dist/index.js",
-  
   "types": "dist/index.d.ts",
-  
   "files": [
-  
-    
-  "dist"
-  
+    "dist"
   ],
-  
   "scripts": {
-  
-    
-  "build": "rm -r ./dist/* && tsc"
-  
+    "build": "rm -r ./dist/* && tsc"
   },
-  
   "author": "CodingWithNuke",
-  
   "license": "MIT",
-  
   "repository": {
-  
-    
-  "type": "git",
-  
-    
-  "url": "https://github.com/CodingWithNuke/agma-io.js.git"
-  
+    "type": "git",
+    "url": "https://github.com/CodingWithNuke/agma-io.js.git"
   },
-  
   "homepage": "https://github.com/CodingWithNuke/agma-io.js#readme",
-  
   "devDependencies": {
-  
-    
-  "@types/node": "^14.14.35",
-  
-    
-  "typescript": "^4.2.3"
-  
+    "@types/node": "^14.14.35",
+    "typescript": "^4.2.3"
   },
-  
   "dependencies": {
-  
-    
-  "axios": "^0.21.1"
-  
+    "axios": "^0.21.1"
   }
 }
