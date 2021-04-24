@@ -4,7 +4,7 @@ import { Region } from "../types";
 import { Server } from "../models";
 import { availableRegions } from "../constants";
 
-const getServers = async (region?: Region): Promise<Server[]> => {
+async function getServers(region?: Region): Promise<Server[]> {
   const { data } = await API.get("https://agma.io/php_hscores_file.php", {
     params: {
       type: 3,
@@ -22,6 +22,6 @@ const getServers = async (region?: Region): Promise<Server[]> => {
   } else {
     return data.map((server: any) => new Server(server));
   }
-};
+}
 
 export default getServers;

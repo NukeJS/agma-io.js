@@ -2,9 +2,9 @@ import { API } from "../constants";
 
 import { MassLeaderboardUser } from "../models";
 
-const getMassLeaderboard = async (
+async function getMassLeaderboard(
   serverId: number
-): Promise<MassLeaderboardUser[]> => {
+): Promise<MassLeaderboardUser[]> {
   const { data } = await API.get("/php_hscores_file.php", {
     params: {
       type: 1,
@@ -13,6 +13,6 @@ const getMassLeaderboard = async (
   });
 
   return data.map((user: any) => new MassLeaderboardUser(user));
-};
+}
 
 export default getMassLeaderboard;

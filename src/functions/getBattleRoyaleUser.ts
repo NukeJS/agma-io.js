@@ -2,9 +2,9 @@ import { API } from "../constants";
 
 import { BattleRoyaleUser } from "../models";
 
-const getBattleRoyaleUser = async (
+async function getBattleRoyaleUser(
   username: string
-): Promise<BattleRoyaleUser> => {
+): Promise<BattleRoyaleUser> {
   if (!username || !username.length) {
     throw new TypeError(`Expected username, but didn't get.`);
   }
@@ -22,6 +22,6 @@ const getBattleRoyaleUser = async (
   }
 
   return new BattleRoyaleUser({ ...data, username });
-};
+}
 
 export default getBattleRoyaleUser;
