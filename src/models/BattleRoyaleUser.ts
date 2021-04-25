@@ -1,16 +1,21 @@
 class BattleRoyaleUser {
   username: string;
-  matches: number;
+  matches: {
+    total: number;
+    daily: number;
+    weekly: number;
+  };
   wins: number;
-  points: number;
-  kills: number;
-  dailyMatches: number;
-  dailyWins: number;
-  dailyPoints: number;
-  dailyKills: number;
-  weeklyMatches: number;
-  weeklyPoints: number;
-  weeklyKills: number;
+  points: {
+    total: number;
+    daily: number;
+    weekly: number;
+  };
+  kills: {
+    total: number;
+    daily: number;
+    weekly: number;
+  };
   saveDate: Date;
   nowDate: Date;
   foodConsumed: number;
@@ -25,17 +30,22 @@ class BattleRoyaleUser {
 
   constructor(data: any) {
     this.username = data.username;
-    this.matches = Number(data.matches);
+    this.matches = {
+      total: Number(data.matches),
+      daily: Number(data.daily_matches),
+      weekly: Number(data.weekly_matches)
+    };
     this.wins = Number(data.wins);
-    this.points = Number(data.points);
-    this.kills = Number(data.kills);
-    this.dailyMatches = Number(data.daily_matches);
-    this.dailyWins = Number(data.daily_wins);
-    this.dailyPoints = Number(data.daily_points);
-    this.dailyKills = Number(data.daily_kills);
-    this.weeklyMatches = Number(data.weekly_matches);
-    this.weeklyPoints = Number(data.weekly_points);
-    this.weeklyKills = Number(data.weekly_kills);
+    this.points = {
+      total: Number(data.points),
+      daily: Number(data.daily_points),
+      weekly: Number(data.weekly_points)
+    };
+    this.kills = {
+      total: Number(data.kills),
+      daily: Number(data.daily_kills),
+      weekly: Number(data.weekly_kills)
+    };
     this.saveDate = new Date(data.save_date);
     this.nowDate = new Date(data.date_now);
     this.foodConsumed = Number(data.food_consumed);
