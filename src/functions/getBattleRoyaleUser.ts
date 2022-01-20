@@ -4,7 +4,7 @@ import { BattleRoyaleUser } from "../models";
 
 async function getBattleRoyaleUser(
   username: string
-): Promise<BattleRoyaleUser> {
+): Promise<BattleRoyaleUser | null> {
   if (!username || !username.length) {
     throw new TypeError(`Expected username, but didn't get.`);
   }
@@ -16,9 +16,7 @@ async function getBattleRoyaleUser(
   });
 
   if (data === "noUser") {
-    throw new Error(
-      `User with username ${username} does not exist or they haven't played Battle Royale yet.`
-    );
+    return null;
   }
 
   return new BattleRoyaleUser({ ...data, username });
